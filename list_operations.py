@@ -69,15 +69,14 @@ def replace_third_and_last(input_list):
     input_list[-1] = 37
     return input_list
 
-def replace_middle(input_list):   #FAILING
+def replace_middle(input_list):   
     """Replace all elements of the input list with the the values 42 and 37, in
     that order, except for the first two and last two elements.
     """
-    input_list[2] = 42
-    input_list[3] = 37
+    input_list[2:-2] = (42, 37)
     return input_list
 
-def delete_third_and_seventh(input_list):  #FAILING
+def delete_third_and_seventh(input_list):  
     """Remove the third and seventh elements of the input list."""
     del input_list[2]
     del input_list[5]
@@ -121,22 +120,26 @@ def custom_len(input_list):
 # For the next four functions, get clever using slice operations described in the first half
 def custom_append(input_list, value):
     """custom_append(input_list, value) imitates input_list.append(value)"""
-    pass
+    input_list += [value]
 
 
 def custom_extend(input_list, values):
     """custom_extend(input_list, values) imitates input_list.extend(values)"""
-    pass
+    input_list += values[:]
+    return input_list
 
 def custom_insert(input_list, index, value):
     """custom_insert(input_list, index, value) imitates
     input_list.insert(index, value)
     """
-    pass
+    input_list[:index] += [value]
+    return input_list
 
 def custom_remove(input_list, value):
     """custom_remove(input_list, value) imitates input_list.remove(value)"""
-    pass
+    x = custom_index(input_list, value)
+    del input_list [x]
+    return input_list
 
 def custom_pop(input_list):
     """custom_pop(input_list) imitates input_list.pop()"""
@@ -146,7 +149,8 @@ def custom_pop(input_list):
 
 def custom_index(input_list, value):
     """custom_index(input_list, value) imitates input_list.index(value)"""
-    pass
+    count = -1
+    
 
 def custom_count(input_list, value):
     """custom_count(input_list, value) imitates input_list.count(value)"""
