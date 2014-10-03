@@ -150,6 +150,11 @@ def custom_pop(input_list):
 def custom_index(input_list, value):
     """custom_index(input_list, value) imitates input_list.index(value)"""
     count = -1
+    for i in input_list:
+       count += 1
+       if value == i:
+          break
+   return count 
     
 
 def custom_count(input_list, value):
@@ -166,19 +171,22 @@ def custom_reverse(input_list):
     middle_point = (how_long/2) + 1
     count = 0
 
-    for i in input_list:
+    for i in input_list[middlepoint:]:
         temp = input_list[count]
         input_list[count] = input_list[-(count+1)]
         input_list[-(count+1)] = temp
+        count += 1
     return input_list
 
 
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
-    pass
+    if value in input_list:
+       return True
 
 def custom_equality(some_list, another_list):
     """custom_equality(some_list, another_list) imitates
     (some_list == another_list)
     """
-    pass
+    if some_list == another list:
+       return True
